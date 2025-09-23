@@ -1,31 +1,59 @@
-# 📦 DistribuidorApp
 
-Aplicación Android desarrollada en **Android Studio** que permite:
+# 📱 DistribuidorApp
 
-- Autenticación de usuarios mediante **Firebase Authentication** (correo/contraseña).
-- Registro de la **ubicación del usuario** en **Firebase Realtime Database** tras el inicio de sesión.
-- Cálculo de despacho entre una distribuidora y sus clientes.
+Aplicación móvil desarrollada en **Android Studio** para el cálculo de despacho en base a la ubicación del cliente/usuario respecto de la distribuidora.
 
 ---
 
-## 🚀 Características
+## 🏗️ Arquitectura del Proyecto
 
-- **Login seguro** con Firebase Authentication.
-- **Registro automático de ubicación** usando `FusedLocationProviderClient`.
-- **Almacenamiento en tiempo real** en Firebase Realtime Database.
-- Código modular y fácil de extender.
-- Pensada como base para sistemas de distribución y logística.
+- **Lenguaje principal:** Java  
+- **Estructura de proyecto:** Android Studio con Gradle  
+- **Paquete principal:** `com.example.distribuidora`  
+
+### 1. Configuración de Proyecto
+- **Gradle Scripts**
+  - `settings.gradle` → configuración de módulos.  
+  - `build.gradle` (app) → dependencias, configuración de SDK y librerías.  
+
+### 2. Actividades Principales
+- **LoginActivity.java**  
+  - Maneja el inicio de sesión del usuario.  
+  - Validación de credenciales.  
+- **MenuActivity.java**  
+  - Pantalla principal posterior al login.  
+  - Permite acceder a funcionalidades del sistema (ejemplo: calcular despacho, ubicación, etc.).  
+
+### 3. Recursos
+- **Layouts (XML)**  
+  - `activity_login.xml` → interfaz de login.  
+  - `activity_menu.xml` → interfaz principal con menú de opciones.  
+- **Drawables**  
+  - Íconos de la aplicación.  
+- **Values**  
+  - Definición de estilos, colores y textos.  
+
+### 4. Manifest
+- **AndroidManifest.xml**  
+  - Configuración de permisos (ubicación, internet, etc.).  
+  - Declaración de actividades de la aplicación.  
+
+### 5. Funcionalidades Clave
+- Autenticación básica de usuarios.  
+- Obtención de la ubicación del cliente/usuario.  
+- Cálculo del despacho en base a la distancia con la distribuidora.  
+- Navegación entre pantallas mediante menú principal.  
 
 ---
 
-## 📂 Estructura de Archivos Relevantes
+## 👥 Historias de Usuario
 
-```bash
-app/
- └── src/
-     └── main/
-         ├── java/com/example/distribuidora/
-         │   └── LoginActivity.java   # Manejo de login y registro de ubicación
-         ├── res/layout/
-         │   └── activity_login.xml   # Interfaz de login
-         └── AndroidManifest.xml      # Permisos y configuración de la app
+1. **Como usuario**, quiero poder iniciar sesión con mis credenciales para acceder de forma segura a la aplicación.  
+
+2. **Como usuario**, quiero que la aplicación detecte mi ubicación actual, para que el cálculo de despacho sea preciso.  
+
+3. **Como cliente**, quiero visualizar el costo de despacho según mi ubicación, para decidir si realizo el pedido.  
+
+4. **Como distribuidor**, quiero que el sistema me muestre un listado de pedidos pendientes con su ubicación, para planificar mis entregas.  
+
+5. **Como usuario**, quiero navegar fácilmente desde el menú principal hacia las diferentes funciones (pedido, cálculo, historial), para tener una mejor experiencia.  
